@@ -209,7 +209,7 @@ export default {
     },
     close() {
       this.showSheet = false
-      this.translateValue = this.closeHeightPercent;
+      this.translateValue = this.closeHeightPercent
       setTimeout(() => {
         document.documentElement.style.overflowY = 'auto'
         document.documentElement.style.overscrollBehavior = ''
@@ -293,7 +293,7 @@ export default {
       if(this.showSheet) {
           return `translate3d(0, ${this.translateValue}%, 0)`
       }
-      return `translate3d(0, calc(${this.translateValue}% + -${this.closeHeightOffset}px), 0)` ;
+      return `translate3d(0, calc(${this.translateValue}% + -${this.closeHeightOffset}px), 0)`
     },
     sheetHeightString() {
       return this.sheetHeight && this.sheetHeight > 0 ? `${this.sheetHeight + 1}px` : 'auto'

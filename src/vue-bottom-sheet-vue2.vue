@@ -69,6 +69,11 @@ export default {
       type: Number,
       default: 100,
     },
+
+    closeHeightOffset: {
+      type: Number,
+      default: 0,
+    },
     initSheetHeight: {
       type: Number,
       default: undefined
@@ -285,7 +290,10 @@ export default {
       return this.maxHeight ? `${this.maxHeight}px` : 'inherit'
     },
     translateValueString() {
-      return `translate3d(0, ${this.translateValue}%, 0)`
+      if(this.showSheet) {
+          return `translate3d(0, ${this.translateValue}%, 0)`
+      }
+      return `translate3d(0, calc(${this.translateValue}% + -${this.closeHeightOffset}px), 0)`
     },
     sheetHeightString() {
       return this.sheetHeight && this.sheetHeight > 0 ? `${this.sheetHeight + 1}px` : 'auto'
